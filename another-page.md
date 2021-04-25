@@ -7,6 +7,6 @@ layout: default
 ## 参考
 <div id="refer-anchor-1"></div>
 
-- [1] [土地财政: 历史、逻辑与抉择](http://www.jcfzw.cn/wp-content/uploads/2014/10/attachment-urtxlm67f69b2d7a1d9de.pdf)
+- [1] [土地财政: 历史、逻辑与抉择](./assets/pdf/0x00/economies/土地财政_历史、逻辑与抉择.pdf)
 
 [back](./)
