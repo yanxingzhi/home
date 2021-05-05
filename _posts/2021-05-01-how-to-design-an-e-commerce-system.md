@@ -7,6 +7,15 @@ author: yue.yan
 tag: "技术"
 ---
 
+## 促销活动
+> 促销目的
+1. 
+2.  This is an ordered list following a header.
+3.  This is an ordered list following a header.
+>
+> 
+
+
 ## 库存管理
 > 库存管理最重要的是存库的分配和扣减
 > 
@@ -14,6 +23,7 @@ tag: "技术"
 
 ### 库存扣减
 > 扣减的关键是锁定库存，使用锁定库存的目的之一是
+
 ```java
 /**
  * 商品存库管理，扣减模型
@@ -77,12 +87,6 @@ class SkuDomain {
 ```
 
 ### 库存分配 TODO
-> 活动库存
+> 活动库存:如果活动库存归为锁定库存，就要分区普通商品和活动商品，
+
 > 预售库存
-
-
-
-
-
-
-
