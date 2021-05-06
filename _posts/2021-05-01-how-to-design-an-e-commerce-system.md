@@ -7,6 +7,86 @@ author: yue.yan
 tag: "技术"
 ---
 
+## 商品中心
+### 商品类目
+
+```java
+
+/**
+ * 类目
+ */
+class CatalogDomain {
+    /**
+     * 类目编号
+     */
+    private String catalogNo;
+    /**
+     * 上一级类目
+     */
+    private String parentCatalogNo;
+    /**
+     * 类目级别
+     */
+    private String catalogLevel;
+    /**
+     * 类目名称
+     */
+    private String catalog_name;
+}
+
+/**
+ * 基础数据类目层（后台类目）,主要面向商家后台
+ */
+class CatalogPostDomain extends CatalogDomain {
+    /**
+     * 类目映射编号，仅叶子节点做映射
+     * @see CatalogPreDomain#catalogNo
+     */
+    private String mappingNo;
+}
+
+/**
+ * 前台展示类目层（前台类目），主要面向用户，也可以商家定制
+ */
+class CatalogPreDomain extends CatalogDomain {
+    /**
+     * 商家定制自己的类目
+     */
+    private String merchantNo;
+}
+
+/**
+ * 类目服务
+ */
+class CatalogService {
+    /**
+     * 类目集
+     */
+    private List<CatalogDomain> catalogList;
+
+    /**
+     * TODO by yue.yan
+     * 返回所有类目
+     * @return
+     */
+    public List<CatalogDomain> getSortedCatalog() {
+        return null;
+    }
+
+    /**
+     * TODO by yue.yan
+     * 返回商家的所有类目
+     * @param merchantNo 商家编号
+     * @return
+     */
+    public List<CatalogDomain> getSortedCatalogByMerchantNo(String merchantNo) {
+        return null;
+    } 
+}
+```
+
+### 
+
 ## 促销活动
 > 促销目的
 1. 
@@ -154,3 +234,5 @@ class ActivitySkuDomain extends SkuDomain {
     }
 }
 ```
+
+## 订单管理
