@@ -37,6 +37,18 @@ class SkuDomain {
     private int stock;
 
     /**
+     * 商家录入商品
+     * @param skuNo 系统生成的skuNo
+     * @param lockedStock 初始数量为 0
+     * @param stock 商家填写的库存数 
+     */
+    public SkuDomain(String skuNo, int lockedStock, int stock) {
+        this.skuNo = skuNo;
+        this.lockedStock = lockedStock;
+        this.stock = stock;
+    }
+
+    /**
      * @return 可销售库存
      */
     public int calcSellStock() {
@@ -90,3 +102,55 @@ class SkuDomain {
 > 活动库存:如果活动库存归为锁定库存，就要分区普通商品和活动商品，
 
 > 预售库存
+
+```java
+/**
+ * 商品库存管理，分配模型
+ */
+class ActivitySkuDomain extends SkuDomain {
+    /**
+     * 普通商品
+     */
+    private SkuDomain skuDomain;
+
+    // 商品信息,以sku维度来做库存的扣减
+    private String skuNo;
+    // 锁定库存
+    private int lockedStock;
+    // 实际商品库存
+    private int stock;
+    
+    public ActivitySkuDomain(String skuNo, int lockedStock, int stock) {
+        super(skuNo, lockedStock, stock);
+    }
+
+    /**
+     * 参加活动
+     * @param skuNo 商家选择参加活动的skuNo
+     * @param stock 商家填写的活动库存数
+     * @return 是否参加活动成功
+     */
+    public boolean joinActivity(String skuNo, int stock) {
+        skuDomain.lockStock(stock);
+        
+        this.stock = stock;
+        this.lockedStock = 0;
+        this.skuNo = skuNo;
+        return true;
+    }
+
+    /**
+     * 活动结束
+     * @param skuNo 商家选择参加活动的skuNo
+     * @return 是否参加活动成功
+     */
+    public boolean endActivity(String skuNo) {
+        if (0 == this.stock) {
+            return true;
+        }
+
+        skuDomain.unlockStock(this.stock);
+        return true;
+    }
+}
+```
