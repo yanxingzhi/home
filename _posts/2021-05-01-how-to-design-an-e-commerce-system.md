@@ -255,4 +255,143 @@ class ActivitySkuDomain extends SkuDomain {
 
 ## 10.订单管理
 
+```java
+import java.math.BigDecimal;
+
+/**
+ * 订单抽象类，主要用充血模型
+ */
+abstract class Order {
+    /**
+     * 订单号
+     */
+    private String orderId;
+    /**
+     * 订单状态
+     */
+    private String status;
+    /**
+     * 商品总金额
+     */
+    private BigDecimal totalAmt;
+    /**
+     * 减免总金额
+     */
+    private BigDecimal abatementAmt;
+    /**
+     * 直接支付金额
+     */
+    private BigDecimal realAmt;
+    /**
+     * 订单类型
+     */
+    private String orderType;
+}
+
+/**
+ * 母单(主单)
+ */
+class ParentOrder extends Order {
+    private List<ChildOrder> childOrderList;
+}
+
+/**
+ * 子单，一般按店铺，也有按仓库、物品运输
+ */
+class ChildOrder extends Order {
+    private List<ItemOrder> itemOrderList;
+}
+
+/**
+ * 行单，订单列表经常会用行单结构
+ */
+class ItemOrder extends Order {
+    /**
+     * sku
+     */
+    private String skuNo;
+    /**
+     * 数量
+     */
+    private int itemNum;
+}
+
+class CreateOrderRequest {
+
+}
+
+class OrderService {
+    private PayService payService;
+
+    /**
+     * 创建订单
+     * @param createOrderRequest
+     * @return 主订单
+     */
+    public Order createOrder(CreateOrderRequest createOrderRequest) {
+
+    }
+
+    /**
+     * 取消订单
+     * @see CancelEnum 取消状态枚举，1：取消成功 2：取消失败 3：取消审核中
+     * @param orderId
+     * @return
+     */
+    public CancelEnum cancelOrder(String orderId) {
+
+    }
+
+    /**
+     * 支付成功后，流转订单
+     * PS：支付成功后的订单处理和商家发货、物流变更是否用同一接口处理？
+     * @param orderId
+     */
+    public void processOrder(String orderId) {
+        PayStatusEnum payStatus = payService.getPayStatusByOrderId(orderId);
+        if (!PayStatusEnum.isPaySuccess(payStatus)) {
+            //
+            return;
+        }
+        
+        // 支付成功后流转
+    }
+}
+
+/**
+ * 支付
+ */
+class PayService {
+    /**
+     * 立即支付
+     * @param orderId
+     * @return
+     */
+    public PayInfo generatePayChannel(String orderId);
+
+    /**
+     * 支付成功
+     * @param orderId
+     */
+    public void paySuccess(String orderId);
+
+    /**
+     * 获取订单支付状态
+     * @see PaySatusEnum
+     * @param orderId
+     * @return
+     */
+    public PayStatusEnum getPayStatusByOrderId(String orderId);
+}
+
+/**
+ * 售后
+ */
+class RefundService {
+
+}
+
+```
+
+
 ## 11.其他系统
