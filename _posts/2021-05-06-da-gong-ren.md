@@ -47,4 +47,6 @@ P6 可能就会针对需求直接提出意见
 主要是能够负责项目中的子任务推进。
 
 ## 考核机制
-### [研发管理和绩效考核](https://www.zhihu.com/question/20190597/answer/26416269)
+> [研发管理和绩效考核](https://www.zhihu.com/question/20190597/answer/26416269)  
+> [如何评价网传阿里巴巴将取消「361 考核制度」？](https://www.zhihu.com/question/436837449/answer/1651449700)  
+>  
