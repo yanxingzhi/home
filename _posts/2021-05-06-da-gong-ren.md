@@ -2,7 +2,7 @@
 layout: post
 title:  "打工人"
 date:   2021-05-01 10:00:00 +0800
-categories: "怼天怼地怼空气"
+categories: "社科"
 author: yue.yan
 tag: "吊打面试官"
 ---

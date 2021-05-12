@@ -1,10 +1,10 @@
 ---
 layout: post
 title:  "技术总结"
-date:   2021-05-12 10:00:00 +0800
-categories: "技术"
+date:   2021-05-01 10:00:00 +0800
+categories: "Technologe"
 author: yue.yan
-tag: "吊打面试官"
+tag: "Technologe"
 ---
 
 ## JVM
