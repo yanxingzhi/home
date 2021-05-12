@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "打工人"
-date:   2021-05-01 10:00:00 +0800
+title:  "技术总结"
+date:   2021-05-12 10:00:00 +0800
 categories: "技术"
 author: yue.yan
 tag: "吊打面试官"
